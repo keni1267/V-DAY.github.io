@@ -1,0 +1,109 @@
+/* Add this style for the trailing hearts */
+.trailing-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Customize the heart size and color */
+.trailing-heart::before {
+    content: '\2665'; /* Unicode for a heart character */
+    font-size: 40px;  /* Increase the font size for bigger hearts */
+    color: #ff3366;   /* Change the heart color to a more visible one */
+    display: block;
+
+}
+
+#typewriter-h1,
+#typewriter-h2 {
+    pointer-events: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+    margin: 0;
+
+    background-color: #fcd7d7;
+    font-family: 'Parisienne', cursive;
+}
+
+h1, h2 {
+    color: #c78ca0;
+    font-size: 4em;
+    margin: 0;
+    text-align: center;
+}
+h2{
+    font-size: 3em;
+}
+
+button {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px 28px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+    background-color: #fff3fa;
+}
+
+button:hover {
+    background-color: white;
+}
+
+/* heart before = left, heart after = right*/
+.heart-container {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    top: 25px;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: #d71a57;
+}
+
+.heart:before {
+    left: 50px;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
